@@ -2,7 +2,9 @@ const { ethers } = require("hardhat");
 
 async function main() {
   const NFTContract = await ethers.getContractFactory("GameItem");
-  const deployedNFTContract = await NFTContract.deploy();
+  const deployedNFTContract = await NFTContract.deploy({
+    gasPrice: 50000000000,
+  });
 
   console.log("NFT Contract address:", deployedNFTContract.address);
 }
